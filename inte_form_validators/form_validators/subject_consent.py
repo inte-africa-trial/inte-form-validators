@@ -11,7 +11,7 @@ from pytz import timezone
 
 class SubjectConsentFormValidator(FormValidator):
 
-    subject_screening_model = "meta_screening.subjectscreening"
+    subject_screening_model = "inte_screening.subjectscreening"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -20,8 +20,9 @@ class SubjectConsentFormValidator(FormValidator):
         self.dob = self.cleaned_data.get("dob")
         self.gender = self.cleaned_data.get("gender")
         self.guardian_name = self.cleaned_data.get("guardian_name")
-        self.screening_identifier = self.cleaned_data.get("screening_identifier")
-        self.tz = timezone("Africa/Dar_es_Salaam")
+        self.screening_identifier = self.cleaned_data.get(
+            "screening_identifier")
+        self.tz = timezone("Africa/Kampala")
 
     def clean(self):
         self.validate_consent_datetime()
@@ -103,7 +104,8 @@ class SubjectConsentFormValidator(FormValidator):
         if (
             self.consent_datetime - self.subject_screening.eligibility_datetime
         ).total_seconds() < 0:
-            local_dt = self.subject_screening.eligibility_datetime.astimezone(self.tz)
+            local_dt = self.subject_screening.eligibility_datetime.astimezone(
+                self.tz)
             formatted = local_dt.strftime(
                 convert_php_dateformat(settings.SHORT_DATETIME_FORMAT)
             )
@@ -121,19 +123,7 @@ class SubjectConsentFormValidator(FormValidator):
         """Validate that the identity is a hospital number and
         matches that on the screening form.
         """
-        if self.cleaned_data.get("identity_type") != "hospital_no":
-            raise forms.ValidationError(
-                {"identity_type": "Expected 'hospital number'."}
-            )
-
-        if self.subject_screening.hospital_identifier != self.cleaned_data.get(
-            "identity"
-        ):
-            raise forms.ValidationError(
-                {
-                    "identity": (
-                        "The hospital identifier does not match that "
-                        "reported at screening."
-                    )
-                }
-            )
+#         if self.cleaned_data.get("identity_type") != "hospital_no":
+#             raise forms.ValidationError(
+#                 {"identity_type": "Expected 'hospital number'."}
+#             )

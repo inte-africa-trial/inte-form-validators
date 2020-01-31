@@ -10,7 +10,7 @@ class BloodResultsFormValidatorMixin(
 ):
 
     reportable_grades = [GRADE3, GRADE4]
-    reference_list_name = "meta"
+    reference_list_name = "inte"
     requisition_field = None
     assay_datetime_field = None
     field_names = []

@@ -1,5 +1,6 @@
 from django import forms
-from meta_labs.panels import (
+from edc_constants.constants import FASTING
+from inte_labs.panels import (
     blood_glucose_panel,
     blood_glucose_poc_panel,
     chemistry_panel,
@@ -7,7 +8,6 @@ from meta_labs.panels import (
     hba1c_panel,
     hba1c_poc_panel,
 )
-from meta_subject.constants import FASTING
 
 from .blood_results_form_validator_mixin import BloodResultsFormValidatorMixin
 
@@ -24,7 +24,8 @@ class BloodResultsGluFormValidator(BloodResultsFormValidatorMixin):
     def extra_options(self):
         if not self.cleaned_data.get("fasting"):
             raise forms.ValidationError({"fasting": "This field is required."})
-        fasting = True if self.cleaned_data.get("fasting") == FASTING else False
+        fasting = True if self.cleaned_data.get(
+            "fasting") == FASTING else False
         return dict(fasting=fasting)
 
 
