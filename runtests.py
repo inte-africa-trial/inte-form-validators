@@ -36,6 +36,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
     RANDOMIZATION_LIST_PATH=join(
         base_dir, app_name, "tests", "test_randomization_list.csv"),
+    EDC_RANDOMIZATION_ASSIGNMENT_MAP={"intervention": 1, "control": 2},
     INSTALLED_APPS=[
         "django.contrib.admin",
         "django.contrib.auth",
@@ -66,7 +67,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_sites.apps.AppConfig",
         "edc_pharmacy.apps.AppConfig",
         "edc_protocol.apps.AppConfig",
-        "edc_intedata.apps.AppConfig",
+        "edc_metadata.apps.AppConfig",
         "edc_metadata_rules.apps.AppConfig",
         "edc_model_admin.apps.AppConfig",
         "edc_notification.apps.AppConfig",
@@ -84,6 +85,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "inte_prn.apps.AppConfig",
         "inte_screening.apps.AppConfig",
         "inte_visit_schedule.apps.AppConfig",
+        "inte_reference.apps.AppConfig",
         "inte_subject.apps.AppConfig",
         "inte_consent.apps.AppConfig",
         "inte_form_validators.apps.AppConfig",

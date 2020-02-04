@@ -1,1 +1,4 @@
-from .form_validators import SubjectConsentFormValidator
+from .form_validators import (
+    SubjectConsentFormValidator,
+    GeneralAssessmentInitialFormValidator,
+)
