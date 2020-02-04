@@ -24,8 +24,7 @@ class BloodResultsGluFormValidator(BloodResultsFormValidatorMixin):
     def extra_options(self):
         if not self.cleaned_data.get("fasting"):
             raise forms.ValidationError({"fasting": "This field is required."})
-        fasting = True if self.cleaned_data.get(
-            "fasting") == FASTING else False
+        fasting = True if self.cleaned_data.get("fasting") == FASTING else False
         return dict(fasting=fasting)
 
 
