@@ -3,8 +3,6 @@
 INTE form-validators
 --------------------
 
-INTE validatros
-
 .. |pypi| image:: https://img.shields.io/pypi/v/inte-form-validators.svg
     :target: https://pypi.python.org/pypi/inte-form-validators
     
