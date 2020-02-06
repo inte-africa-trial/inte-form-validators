@@ -39,7 +39,8 @@ class TestFormValidators(InteTestCaseMixin, TestCase):
         consent_datetime = self.subject_screening.eligibility_datetime - relativedelta(
             minutes=1
         )
-        consent_datetime = consent_datetime.astimezone(timezone("Africa/Kampala"))
+        consent_datetime = consent_datetime.astimezone(
+            timezone("Africa/Kampala"))
         cleaned_data = dict(
             screening_identifier=self.screening_identifier,
             dob=self.subject_screening.report_datetime.date() - relativedelta(years=25),
@@ -59,7 +60,8 @@ class TestFormValidators(InteTestCaseMixin, TestCase):
         consent_datetime = self.subject_screening.eligibility_datetime + relativedelta(
             minutes=1
         )
-        consent_datetime = consent_datetime.astimezone(timezone("Africa/Kampala"))
+        consent_datetime = consent_datetime.astimezone(
+            timezone("Africa/Kampala"))
         cleaned_data = dict(
             screening_identifier=self.screening_identifier,
             dob=self.subject_screening.report_datetime.date() - relativedelta(years=25),
