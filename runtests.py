@@ -18,6 +18,8 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     calling_file=__file__,
     BASE_DIR=base_dir,
     APP_NAME=app_name,
+    SITE_ID=100,
+    COUNTRY="uganda",
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
     EDC_BOOTSTRAP=3,
     EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend",
@@ -34,9 +36,8 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     SUBJECT_REQUISITION_MODEL=f"inte_subject.subjectrequisition",
     LIVE_SYSTEM=False,
     EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
-    RANDOMIZATION_LIST_PATH=join(
-        base_dir, app_name, "tests", "test_randomization_list.csv"),
-    EDC_RANDOMIZATION_ASSIGNMENT_MAP={"intervention": 1, "control": 2},
+    RANDOMIZATION_LIST_PATH=join(base_dir, app_name, "tests"),
+    EDC_RANDOMIZATION_REGISTER_DEFAULT_RANDOMIZER=False,
     INSTALLED_APPS=[
         "django.contrib.admin",
         "django.contrib.auth",
