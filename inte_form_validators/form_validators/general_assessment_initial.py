@@ -19,6 +19,7 @@ class GeneralAssessmentInitialFormValidator(CrfFormValidatorMixin, FormValidator
         self.applicable_if(
             YES, field="attending_hiv_clinic", field_applicable="use_hiv_clinic_nearby"
         )
+        self.required_if(YES, field="hiv", field_required="hiv_next_appt_date")
 
         if (
             self.cleaned_data.get("diabetic") == NO
@@ -53,4 +54,8 @@ class GeneralAssessmentInitialFormValidator(CrfFormValidatorMixin, FormValidator
 
         self.applicable_if(
             YES, field="attending_ncd_clinic", field_applicable="use_ncd_clinic_nearby"
+        )
+
+        self.required_if(
+            YES, field="attending_ncd_clinic", field_required="ncd_next_appt_date"
         )
