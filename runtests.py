@@ -10,7 +10,6 @@ from edc_constants.constants import IGNORE
 from edc_test_utils import DefaultTestSettings
 from os.path import abspath, dirname, join
 
-
 app_name = 'inte_form_validators'
 base_dir = dirname(abspath(__file__))
 

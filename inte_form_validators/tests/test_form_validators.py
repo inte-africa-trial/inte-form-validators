@@ -1,5 +1,6 @@
 from dateutil.relativedelta import relativedelta
 from django import forms
+from django.conf import settings
 from django.test import TestCase, tag
 from edc_consent.constants import MOBILE_NUMBER
 from edc_constants.constants import MALE
